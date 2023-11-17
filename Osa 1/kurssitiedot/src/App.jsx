@@ -1,6 +1,13 @@
 
 
 const App = () => {
+  
+
+  const Header = ({ course }) => {
+    return (
+      <h1>{course}</h1>
+    );
+  }
   const Content = () => {
     return (
       <div>
@@ -18,13 +25,6 @@ const App = () => {
       </div>
     );
   }
-
-  const Header = ({ course }) => {
-    return (
-      <h1>{course}</h1>
-    );
-  }
-
   const Total = ({ exercises1, exercises2, exercises3 }) => {
     const totalExercises = exercises1 + exercises2 + exercises3;
 

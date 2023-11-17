@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const App = () => {
+  // Array of software development anecdotes
   const anecdotes = [
     'If it hurts, do it more often.',
     'Adding manpower to a late software project makes it later!',
@@ -12,23 +13,32 @@ const App = () => {
     'The only way to go fast is to go well.',
   ];
 
+  // State for the currently selected anecdote
   const [selected, setSelected] = useState(0);
+
+  // State for tracking votes for each anecdote
   const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0));
 
+  // Handler for displaying the next random anecdote
   const handleNextAnecdote = () => {
     const randomIndex = Math.floor(Math.random() * anecdotes.length);
     setSelected(randomIndex);
   };
 
+  // Handler for voting on the current anecdote
   const handleVote = () => {
     const newVotes = [...votes];
     newVotes[selected] += 1;
     setVotes(newVotes);
   };
 
+  // Find the index of the most voted anecdote
   const mostVotedIndex = votes.indexOf(Math.max(...votes));
+
+  // Get the most voted anecdote text
   const mostVotedAnecdote = anecdotes[mostVotedIndex];
 
+  // JSX for the component
   return (
     <div>
       <h1>Anecdote of the Day</h1>
